@@ -1,0 +1,29 @@
+C:\repos\my-recipes-book\My Recipes Book\My Recipes Book\bin\Debug\net5.0\appsettings.Development.json
+C:\repos\my-recipes-book\My Recipes Book\My Recipes Book\bin\Debug\net5.0\appsettings.json
+C:\repos\my-recipes-book\My Recipes Book\My Recipes Book\bin\Debug\net5.0\My Recipes Book.exe
+C:\repos\my-recipes-book\My Recipes Book\My Recipes Book\bin\Debug\net5.0\My Recipes Book.deps.json
+C:\repos\my-recipes-book\My Recipes Book\My Recipes Book\bin\Debug\net5.0\My Recipes Book.runtimeconfig.json
+C:\repos\my-recipes-book\My Recipes Book\My Recipes Book\bin\Debug\net5.0\My Recipes Book.runtimeconfig.dev.json
+C:\repos\my-recipes-book\My Recipes Book\My Recipes Book\bin\Debug\net5.0\My Recipes Book.dll
+C:\repos\my-recipes-book\My Recipes Book\My Recipes Book\bin\Debug\net5.0\ref\My Recipes Book.dll
+C:\repos\my-recipes-book\My Recipes Book\My Recipes Book\bin\Debug\net5.0\My Recipes Book.pdb
+C:\repos\my-recipes-book\My Recipes Book\My Recipes Book\bin\Debug\net5.0\Microsoft.OpenApi.dll
+C:\repos\my-recipes-book\My Recipes Book\My Recipes Book\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\repos\my-recipes-book\My Recipes Book\My Recipes Book\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\repos\my-recipes-book\My Recipes Book\My Recipes Book\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\repos\my-recipes-book\My Recipes Book\My Recipes Book\obj\Debug\net5.0\My Recipes Book.csproj.AssemblyReference.cache
+C:\repos\my-recipes-book\My Recipes Book\My Recipes Book\obj\Debug\net5.0\My Recipes Book.GeneratedMSBuildEditorConfig.editorconfig
+C:\repos\my-recipes-book\My Recipes Book\My Recipes Book\obj\Debug\net5.0\My Recipes Book.AssemblyInfoInputs.cache
+C:\repos\my-recipes-book\My Recipes Book\My Recipes Book\obj\Debug\net5.0\My Recipes Book.AssemblyInfo.cs
+C:\repos\my-recipes-book\My Recipes Book\My Recipes Book\obj\Debug\net5.0\My Recipes Book.csproj.CoreCompileInputs.cache
+C:\repos\my-recipes-book\My Recipes Book\My Recipes Book\obj\Debug\net5.0\My Recipes Book.MvcApplicationPartsAssemblyInfo.cs
+C:\repos\my-recipes-book\My Recipes Book\My Recipes Book\obj\Debug\net5.0\My Recipes Book.MvcApplicationPartsAssemblyInfo.cache
+C:\repos\my-recipes-book\My Recipes Book\My Recipes Book\obj\Debug\net5.0\staticwebassets\My Recipes Book.StaticWebAssets.Manifest.cache
+C:\repos\my-recipes-book\My Recipes Book\My Recipes Book\obj\Debug\net5.0\staticwebassets\My Recipes Book.StaticWebAssets.xml
+C:\repos\my-recipes-book\My Recipes Book\My Recipes Book\obj\Debug\net5.0\scopedcss\bundle\My Recipes Book.styles.css
+C:\repos\my-recipes-book\My Recipes Book\My Recipes Book\obj\Debug\net5.0\My Recipes Book.RazorTargetAssemblyInfo.cache
+C:\repos\my-recipes-book\My Recipes Book\My Recipes Book\obj\Debug\net5.0\My Recipes Book.csproj.CopyComplete
+C:\repos\my-recipes-book\My Recipes Book\My Recipes Book\obj\Debug\net5.0\My Recipes Book.dll
+C:\repos\my-recipes-book\My Recipes Book\My Recipes Book\obj\Debug\net5.0\ref\My Recipes Book.dll
+C:\repos\my-recipes-book\My Recipes Book\My Recipes Book\obj\Debug\net5.0\My Recipes Book.pdb
+C:\repos\my-recipes-book\My Recipes Book\My Recipes Book\obj\Debug\net5.0\My Recipes Book.genruntimeconfig.cache
