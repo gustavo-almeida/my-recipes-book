@@ -1,8 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using My_Recipes_Book.DTO;
+using My_Recipes_Book.Extensions;
 using My_Recipes_Book.Models;
 using My_Recipes_Book.Repositories;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace My_Recipes_Book.Controllers
 {
@@ -10,29 +13,29 @@ namespace My_Recipes_Book.Controllers
     [Route("recipes")]
     public class RecipesController : ControllerBase
     {
-        private readonly InMemRecipesRepository repository;
+        private readonly IRecipesRepository repository;
 
-        public RecipesController()
+        public RecipesController(IRecipesRepository repository)
         {
-            repository = new InMemRecipesRepository();
+            this.repository = repository;
         }
 
         [HttpGet]
-        public IEnumerable<Recipe> GetItems()
+        public IEnumerable<RecipeDto> GetItems()
         {
-            var recipes = repository.GetItems();
+            var recipes = repository.GetItems().Select(recipe => recipe.AsDto());
             return recipes;
         }
 
         [HttpGet("{id}")]
-        public ActionResult<Recipe> GetItem(Guid id)
+        public ActionResult<RecipeDto> GetItem(Guid id)
         {
             var recipe = repository.GetRecipe(id);
 
             if (recipe is null)
                 return NotFound();
 
-            return recipe;
+            return recipe.AsDto();
         }
     }
 }

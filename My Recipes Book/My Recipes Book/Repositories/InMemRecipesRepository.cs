@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace My_Recipes_Book.Repositories
 {
-    public class InMemRecipesRepository
+    public class InMemRecipesRepository : IRecipesRepository
     {
         private readonly List<Recipe> recipes = new()
         {

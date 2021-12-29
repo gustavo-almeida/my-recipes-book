@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using My_Recipes_Book.Repositories;
 
 namespace My_Recipes_Book
 {
@@ -26,6 +27,7 @@ namespace My_Recipes_Book
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSingleton<IRecipesRepository, InMemRecipesRepository>();
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
