@@ -8,6 +8,7 @@ namespace My_Recipes_Book.Repositories
     {
         Recipe GetRecipe(Guid id);
 
-        IEnumerable<Recipe> GetItems();
+        IEnumerable<Recipe> GetRecipes();
+        void CreateRecipe(Recipe recipe);
     }
 }

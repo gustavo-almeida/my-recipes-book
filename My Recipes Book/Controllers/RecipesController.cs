@@ -21,14 +21,14 @@ namespace My_Recipes_Book.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<RecipeDto> GetItems()
+        public IEnumerable<RecipeDto> GetRecipes()
         {
-            var recipes = repository.GetItems().Select(recipe => recipe.AsDto());
+            var recipes = repository.GetRecipes().Select(recipe => recipe.AsDto());
             return recipes;
         }
 
         [HttpGet("{id}")]
-        public ActionResult<RecipeDto> GetItem(Guid id)
+        public ActionResult<RecipeDto> GetRecipe(Guid id)
         {
             var recipe = repository.GetRecipe(id);
 
@@ -36,6 +36,22 @@ namespace My_Recipes_Book.Controllers
                 return NotFound();
 
             return recipe.AsDto();
+        }
+
+        [HttpPost]
+        public ActionResult<RecipeDto> CreateRecipe(CreateRecipeDto recipeDto)
+        {
+            Recipe recipe = new()
+            {
+                Id = Guid.NewGuid(),
+                Title = recipeDto.Title,
+                Ingredients = new List<string>(recipeDto.Ingredients),
+                Instructions = new List<string>(recipeDto.Instructions)
+            };
+
+            repository.CreateRecipe(recipe);
+
+            return CreatedAtAction(nameof(GetRecipe), new { id = recipe.Id }, recipe.AsDto());
         }
     }
 }

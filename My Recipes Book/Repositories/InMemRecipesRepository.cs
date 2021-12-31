@@ -69,7 +69,7 @@ namespace My_Recipes_Book.Repositories
             }
         };
 
-        public IEnumerable<Recipe> GetItems()
+        public IEnumerable<Recipe> GetRecipes()
         {
             return recipes;
         }
@@ -77,6 +77,11 @@ namespace My_Recipes_Book.Repositories
         public Recipe GetRecipe(Guid id)
         {
             return recipes.Where(recipe => recipe.Id == id).SingleOrDefault();
+        }
+
+        public void CreateRecipe(Recipe recipe)
+        {
+            recipes.Add(recipe);
         }
     }
 }
