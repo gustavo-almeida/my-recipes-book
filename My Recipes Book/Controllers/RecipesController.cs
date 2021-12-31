@@ -53,5 +53,25 @@ namespace My_Recipes_Book.Controllers
 
             return CreatedAtAction(nameof(GetRecipe), new { id = recipe.Id }, recipe.AsDto());
         }
+
+        [HttpPut("{id}")]
+        public ActionResult UpdateRecipe(Guid id, UpdateRecipeDto recipeDto)
+        {
+            var existingRecipe = repository.GetRecipe(id);
+
+            if (existingRecipe is null)
+                return NotFound();
+
+            Recipe updatedRecipe = existingRecipe with
+            {
+                Title = recipeDto.Title,
+                Ingredients = new List<string>(recipeDto.Ingredients),
+                Instructions = new List<string>(recipeDto.Instructions)
+            };
+
+            repository.UpdateRecipe(updatedRecipe);
+
+            return NoContent();
+        }
     }
 }

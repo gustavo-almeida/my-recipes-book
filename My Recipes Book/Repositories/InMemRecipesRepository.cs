@@ -83,5 +83,11 @@ namespace My_Recipes_Book.Repositories
         {
             recipes.Add(recipe);
         }
+
+        public void UpdateRecipe(Recipe recipe)
+        {
+            var index = recipes.FindIndex(existingRecipe => existingRecipe.Id == recipe.Id);
+            recipes[index] = recipe;
+        }
     }
 }
