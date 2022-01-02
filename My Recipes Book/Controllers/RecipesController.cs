@@ -73,5 +73,18 @@ namespace My_Recipes_Book.Controllers
 
             return NoContent();
         }
+
+        [HttpDelete("{id}")]
+        public ActionResult DeleteRecipe(Guid id)
+        {
+            var existingRecipe = repository.GetRecipe(id);
+
+            if (existingRecipe is null)
+                return NotFound();
+
+            repository.DeleteRecipe(id);
+
+            return NoContent();
+        }
     }
 }

@@ -89,5 +89,11 @@ namespace My_Recipes_Book.Repositories
             var index = recipes.FindIndex(existingRecipe => existingRecipe.Id == recipe.Id);
             recipes[index] = recipe;
         }
+
+        public void DeleteRecipe(Guid id)
+        {
+            var index = recipes.FindIndex(existingRecipe => existingRecipe.Id == id);
+            recipes.RemoveAt(index);
+        }
     }
 }

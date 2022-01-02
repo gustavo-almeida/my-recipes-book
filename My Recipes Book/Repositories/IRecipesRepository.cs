@@ -10,5 +10,6 @@ namespace My_Recipes_Book.Repositories
         IEnumerable<Recipe> GetRecipes();
         void CreateRecipe(Recipe recipe);
         void UpdateRecipe(Recipe recipe);
+        void DeleteRecipe(Guid id);
     }
 }
