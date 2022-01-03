@@ -11,7 +11,12 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using MongoDB.Bson;
+using MongoDB.Bson.Serialization;
+using MongoDB.Bson.Serialization.Serializers;
+using MongoDB.Driver;
 using My_Recipes_Book.Repositories;
+using My_Recipes_Book.Settings;
 
 namespace My_Recipes_Book
 {
@@ -27,7 +32,15 @@ namespace My_Recipes_Book
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddSingleton<IRecipesRepository, InMemRecipesRepository>();
+            BsonSerializer.RegisterSerializer(new GuidSerializer(BsonType.String));
+
+            services.AddSingleton<IMongoClient>(serviceProvider =>
+            {
+                var settings = Configuration.GetSection(nameof(MongoDbSettings)).Get<MongoDbSettings>();
+                return new MongoClient(settings.ConnectionString);
+            });
+
+            services.AddSingleton<IRecipesRepository, MongoDbRecipesRepository>();
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
