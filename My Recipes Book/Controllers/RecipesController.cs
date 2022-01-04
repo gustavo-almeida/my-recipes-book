@@ -6,6 +6,7 @@ using My_Recipes_Book.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace My_Recipes_Book.Controllers
 {
@@ -21,16 +22,16 @@ namespace My_Recipes_Book.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<RecipeDto> GetRecipes()
+        public async Task<IEnumerable<RecipeDto>> GetRecipesAsync()
         {
-            var recipes = repository.GetRecipes().Select(recipe => recipe.AsDto());
+            var recipes = (await repository.GetRecipesAsync()).Select(recipe => recipe.AsDto());
             return recipes;
         }
 
         [HttpGet("{id}")]
-        public ActionResult<RecipeDto> GetRecipe(Guid id)
+        public async Task<ActionResult<RecipeDto>> GetRecipeAsync(Guid id)
         {
-            var recipe = repository.GetRecipe(id);
+            var recipe = await repository.GetRecipeAsync(id);
 
             if (recipe is null)
                 return NotFound();
@@ -39,7 +40,7 @@ namespace My_Recipes_Book.Controllers
         }
 
         [HttpPost]
-        public ActionResult<RecipeDto> CreateRecipe(CreateRecipeDto recipeDto)
+        public async Task<ActionResult<RecipeDto>> CreateRecipeAsync(CreateRecipeDto recipeDto)
         {
             Recipe recipe = new()
             {
@@ -49,15 +50,15 @@ namespace My_Recipes_Book.Controllers
                 Instructions = new List<string>(recipeDto.Instructions)
             };
 
-            repository.CreateRecipe(recipe);
+            await repository.CreateRecipeAsync(recipe);
 
-            return CreatedAtAction(nameof(GetRecipe), new { id = recipe.Id }, recipe.AsDto());
+            return CreatedAtAction(nameof(GetRecipeAsync), new { id = recipe.Id }, recipe.AsDto());
         }
 
         [HttpPut("{id}")]
-        public ActionResult UpdateRecipe(Guid id, UpdateRecipeDto recipeDto)
+        public async Task<ActionResult> UpdateRecipeAsync(Guid id, UpdateRecipeDto recipeDto)
         {
-            var existingRecipe = repository.GetRecipe(id);
+            var existingRecipe = await repository.GetRecipeAsync(id);
 
             if (existingRecipe is null)
                 return NotFound();
@@ -69,20 +70,20 @@ namespace My_Recipes_Book.Controllers
                 Instructions = new List<string>(recipeDto.Instructions)
             };
 
-            repository.UpdateRecipe(updatedRecipe);
+            await repository.UpdateRecipeAsync(updatedRecipe);
 
             return NoContent();
         }
 
         [HttpDelete("{id}")]
-        public ActionResult DeleteRecipe(Guid id)
+        public async Task <ActionResult> DeleteRecipeAsync(Guid id)
         {
-            var existingRecipe = repository.GetRecipe(id);
+            var existingRecipe = await repository.GetRecipeAsync(id);
 
             if (existingRecipe is null)
                 return NotFound();
 
-            repository.DeleteRecipe(id);
+            await repository.DeleteRecipeAsync(id);
 
             return NoContent();
         }
