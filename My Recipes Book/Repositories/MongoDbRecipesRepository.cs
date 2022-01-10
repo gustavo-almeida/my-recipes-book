@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using MongoDB.Bson;
 using MongoDB.Driver;
 using My_Recipes_Book.Models;
@@ -19,32 +20,32 @@ namespace My_Recipes_Book.Repositories
             recipesCollection = database.GetCollection<Recipe>(collectionName);
         }
 
-        public void CreateRecipe(Recipe recipe)
+        public async Task CreateRecipeAsync(Recipe recipe)
         {
-            recipesCollection.InsertOne(recipe);
+            await recipesCollection.InsertOneAsync(recipe);
         }
 
-        public void DeleteRecipe(Guid id)
-        {
-            var filter = filterBuilder.Eq(recipe => recipe.Id, id);
-            recipesCollection.DeleteOne(filter);
-        }
-
-        public Recipe GetRecipe(Guid id)
+        public async Task DeleteRecipeAsync(Guid id)
         {
             var filter = filterBuilder.Eq(recipe => recipe.Id, id);
-            return recipesCollection.Find(filter).SingleOrDefault();
+            await recipesCollection.DeleteOneAsync(filter);
         }
 
-        public IEnumerable<Recipe> GetRecipes()
+        public async Task<Recipe> GetRecipeAsync(Guid id)
         {
-            return recipesCollection.Find(new BsonDocument()).ToList();
+            var filter = filterBuilder.Eq(recipe => recipe.Id, id);
+            return await recipesCollection.Find(filter).SingleOrDefaultAsync();
         }
 
-        public void UpdateRecipe(Recipe recipe)
+        public async Task<IEnumerable<Recipe>> GetRecipesAsync()
+        {
+            return await recipesCollection.Find(new BsonDocument()).ToListAsync();
+        }
+
+        public async Task UpdateRecipeAsync(Recipe recipe)
         {
             var filter = filterBuilder.Eq(existingRecipe => existingRecipe.Id, recipe.Id);
-            recipesCollection.ReplaceOne(filter, recipe);
+            await recipesCollection.ReplaceOneAsync(filter, recipe);
         }
     }
 }

@@ -41,7 +41,10 @@ namespace My_Recipes_Book
             });
 
             services.AddSingleton<IRecipesRepository, MongoDbRecipesRepository>();
-            services.AddControllers();
+            services.AddControllers(options =>
+            {
+                options.SuppressAsyncSuffixInActionNames = false;
+            });
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "My_Recipes_Book", Version = "v1" });

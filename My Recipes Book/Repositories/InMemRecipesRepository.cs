@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace My_Recipes_Book.Repositories
 {
@@ -69,31 +70,35 @@ namespace My_Recipes_Book.Repositories
             }
         };
 
-        public IEnumerable<Recipe> GetRecipes()
+        public async Task<IEnumerable<Recipe>> GetRecipesAsync()
         {
-            return recipes;
+            return await Task.FromResult(recipes);
         }
 
-        public Recipe GetRecipe(Guid id)
+        public async Task<Recipe> GetRecipeAsync(Guid id)
         {
-            return recipes.Where(recipe => recipe.Id == id).SingleOrDefault();
+            var recipe = recipes.SingleOrDefault(recipe => recipe.Id == id);
+            return await Task.FromResult(recipe);
         }
 
-        public void CreateRecipe(Recipe recipe)
+        public async Task CreateRecipeAsync(Recipe recipe)
         {
             recipes.Add(recipe);
+            await Task.CompletedTask;
         }
 
-        public void UpdateRecipe(Recipe recipe)
+        public async Task UpdateRecipeAsync(Recipe recipe)
         {
             var index = recipes.FindIndex(existingRecipe => existingRecipe.Id == recipe.Id);
             recipes[index] = recipe;
+            await Task.CompletedTask;
         }
 
-        public void DeleteRecipe(Guid id)
+        public async Task DeleteRecipeAsync(Guid id)
         {
             var index = recipes.FindIndex(existingRecipe => existingRecipe.Id == id);
             recipes.RemoveAt(index);
+            await Task.CompletedTask;
         }
     }
 }
