@@ -72,7 +72,8 @@ namespace My_Recipes_Book
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "My_Recipes_Book v1"));
             }
 
-            app.UseHttpsRedirection();
+            if (env.IsDevelopment())
+                app.UseHttpsRedirection();
 
             app.UseRouting();
 
