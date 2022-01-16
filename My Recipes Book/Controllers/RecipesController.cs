@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using My_Recipes_Book.DTO;
 using My_Recipes_Book.Extensions;
 using My_Recipes_Book.Models;
@@ -15,16 +16,21 @@ namespace My_Recipes_Book.Controllers
     public class RecipesController : ControllerBase
     {
         private readonly IRecipesRepository repository;
+        private readonly ILogger<RecipesController> logger;
 
-        public RecipesController(IRecipesRepository repository)
+        public RecipesController(IRecipesRepository repository, ILogger<RecipesController> logger)
         {
             this.repository = repository;
+            this.logger = logger;
         }
 
         [HttpGet]
         public async Task<IEnumerable<RecipeDto>> GetRecipesAsync()
         {
             var recipes = (await repository.GetRecipesAsync()).Select(recipe => recipe.AsDto());
+            
+            logger.LogInformation($"{DateTime.UtcNow.ToString("hh:mm:ss")}: Retrieved {recipes.Count()} recipes");
+            
             return recipes;
         }
 
