@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using MongoDB.Bson;
 using MongoDB.Driver;
-using My_Recipes_Book.Models;
+using MyRecipesBook.Api.Models;
 
-namespace My_Recipes_Book.Repositories
+namespace MyRecipesBook.Api.Repositories
 {
     public class MongoDbRecipesRepository : IRecipesRepository
     {

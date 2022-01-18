@@ -7,7 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace My_Recipes_Book
+namespace MyRecipesBook.Api
 {
     public class Program
     {

@@ -1,4 +1,4 @@
-namespace My_Recipes_Book.Settings
+namespace MyRecipesBook.Api.Settings
 {
     public class MongoDbSettings
     {

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace My_Recipes_Book.DTO
+namespace MyRecipesBook.Api.Models
 {
-    public record RecipeDto
+    public record Recipe
     {
         public Guid Id { get; init; }
         public string Title { get; init; }

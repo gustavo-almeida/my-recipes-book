@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace My_Recipes_Book.DTO
+namespace MyRecipesBook.Api.DTO
 {
-    public record UpdateRecipeDto
+    public record CreateRecipeDto
     {
         [Required]
         public string Title { get; init; }

@@ -1,10 +1,10 @@
-﻿using My_Recipes_Book.Models;
+﻿using MyRecipesBook.Api.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace My_Recipes_Book.Repositories
+namespace MyRecipesBook.Api.Repositories
 {
     public class InMemRecipesRepository : IRecipesRepository
     {

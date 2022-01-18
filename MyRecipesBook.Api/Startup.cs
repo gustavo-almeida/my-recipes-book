@@ -19,10 +19,10 @@ using MongoDB.Bson;
 using MongoDB.Bson.Serialization;
 using MongoDB.Bson.Serialization.Serializers;
 using MongoDB.Driver;
-using My_Recipes_Book.Repositories;
-using My_Recipes_Book.Settings;
+using MyRecipesBook.Api.Repositories;
+using MyRecipesBook.Api.Settings;
 
-namespace My_Recipes_Book
+namespace MyRecipesBook.Api
 {
     public class Startup
     {

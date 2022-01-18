@@ -1,15 +1,15 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using My_Recipes_Book.DTO;
-using My_Recipes_Book.Extensions;
-using My_Recipes_Book.Models;
-using My_Recipes_Book.Repositories;
+using MyRecipesBook.Api.DTO;
+using MyRecipesBook.Api.Extensions;
+using MyRecipesBook.Api.Models;
+using MyRecipesBook.Api.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace My_Recipes_Book.Controllers
+namespace MyRecipesBook.Api.Controllers
 {
     [ApiController]
     [Route("recipes")]

@@ -1,8 +1,8 @@
-﻿using My_Recipes_Book.DTO;
-using My_Recipes_Book.Models;
+﻿using MyRecipesBook.Api.DTO;
+using MyRecipesBook.Api.Models;
 using System.Collections.Generic;
 
-namespace My_Recipes_Book.Extensions
+namespace MyRecipesBook.Api.Extensions
 {
     public static class Extensions
     {
