@@ -2,7 +2,7 @@
 
     <PropertyGroup>
         <TargetFramework>net5.0</TargetFramework>
-        <RootNamespace>My_Recipes_Book</RootNamespace>
+        <RootNamespace>MyRecipesBook</RootNamespace>
         <UserSecretsId>ca7f3b2b-5330-4b74-ab00-17894d062bc8</UserSecretsId>
     </PropertyGroup>
 
