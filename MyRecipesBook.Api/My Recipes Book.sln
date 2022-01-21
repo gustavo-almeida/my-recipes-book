@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.31729.503
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyRecipesBook.Api", "MyRecipesBook.Api.csproj", "{FA643EA6-005A-488A-9B63-CFC6B14531F4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyRecipesBook.UnitTests", "..\MyRecipesBook.UnitTests\MyRecipesBook.UnitTests\MyRecipesBook.UnitTests.csproj", "{9BD7FD8E-7976-4312-ADEC-805EFD8677E4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyRecipesBook.UnitTests", "..\MyRecipesBook.UnitTests\MyRecipesBook.UnitTests.csproj", "{9BD7FD8E-7976-4312-ADEC-805EFD8677E4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
