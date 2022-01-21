@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using MyRecipesBook.Api.DTO;
+using MyRecipesBook.Api.Dtos;
 using MyRecipesBook.Api.Extensions;
 using MyRecipesBook.Api.Models;
 using MyRecipesBook.Api.Repositories;
@@ -53,7 +53,8 @@ namespace MyRecipesBook.Api.Controllers
                 Id = Guid.NewGuid(),
                 Title = recipeDto.Title,
                 Ingredients = new List<string>(recipeDto.Ingredients),
-                Instructions = new List<string>(recipeDto.Instructions)
+                Instructions = new List<string>(recipeDto.Instructions),
+                CreatedDate = DateTimeOffset.UtcNow
             };
 
             await repository.CreateRecipeAsync(recipe);
@@ -69,14 +70,11 @@ namespace MyRecipesBook.Api.Controllers
             if (existingRecipe is null)
                 return NotFound();
 
-            Recipe updatedRecipe = existingRecipe with
-            {
-                Title = recipeDto.Title,
-                Ingredients = new List<string>(recipeDto.Ingredients),
-                Instructions = new List<string>(recipeDto.Instructions)
-            };
+            existingRecipe.Title = recipeDto.Title;
+            existingRecipe.Ingredients = new List<string>(recipeDto.Ingredients);
+            existingRecipe.Instructions = new List<string>(recipeDto.Instructions);
 
-            await repository.UpdateRecipeAsync(updatedRecipe);
+            await repository.UpdateRecipeAsync(existingRecipe);
 
             return NoContent();
         }
