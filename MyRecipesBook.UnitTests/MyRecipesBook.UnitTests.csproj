@@ -26,4 +26,8 @@
     <ProjectReference Include="..\MyRecipesBook.Api\MyRecipesBook.Api.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="MyRecipesBook.UnitTests\" />
+  </ItemGroup>
+
 </Project>
