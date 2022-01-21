@@ -25,9 +25,14 @@ namespace MyRecipesBook.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<IEnumerable<RecipeDto>> GetRecipesAsync()
+        public async Task<IEnumerable<RecipeDto>> GetRecipesAsync(string title = null)
         {
             var recipes = (await repository.GetRecipesAsync()).Select(recipe => recipe.AsDto());
+
+            if(!string.IsNullOrWhiteSpace(title))
+            {
+                recipes = recipes.Where(recipe => recipe.Title.Contains(title, StringComparison.OrdinalIgnoreCase));
+            }
             
             logger.LogInformation($"{DateTime.UtcNow.ToString("hh:mm:ss")}: Retrieved {recipes.Count()} recipes");
             

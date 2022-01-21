@@ -71,6 +71,33 @@ namespace MyRecipesBook.UnitTests
         }
 
         [Fact]
+        public async Task GetRecipesAsync_WithMatchingRecipes_ReturnsMatchingRecipes()
+        {
+            // Arrange
+            var allRecipes = new[]
+            {
+                new Recipe(){ Title = "Sorvete com Banana" },
+                new Recipe(){ Title = "Uva passa" },
+                new Recipe(){ Title = "Banana split" }
+            };
+
+            var titleToMatch = "Banana";
+
+            repositoryStub.Setup(repo => repo.GetRecipesAsync())
+                .ReturnsAsync(allRecipes);
+
+            var controller = new RecipesController(repositoryStub.Object, loggerStub.Object);
+
+            // Act
+            IEnumerable<RecipeDto> foundRecipes = await controller.GetRecipesAsync(titleToMatch);
+
+            // Assert
+            foundRecipes.Should().OnlyContain(
+                recipe => recipe.Title == allRecipes[0].Title || recipe.Title == allRecipes[2].Title
+            );
+        }
+
+        [Fact]
         public async Task CreateRecipeAsync_WithRecipeToCreate_ReturnsCreatedRecipe()
         {
             // Arrange
@@ -137,7 +164,6 @@ namespace MyRecipesBook.UnitTests
             // Assert
             result.Should().BeOfType<NoContentResult>();
         }
-
 
         private Recipe CreateRandomRecipe()
         {
